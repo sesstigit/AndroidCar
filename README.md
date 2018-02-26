@@ -1,41 +1,27 @@
-# Autonomous-Car Arduino Library
-An Arduino library, based on [Smartcar sensors], built to control an Autonomous Android Vehicle made by Team Pegasus. This library allows the developer to fetch data from the on-board sensors, transmit them via Bluetooth, while receiving driving commands to control an ESC and a servo motor.
+# AndroidCar Arduino Library
 
-**Note:** This library is not actively developed. Use the [Smartcar shield](https://github.com/platisd/smartcar_shield) library instead.
+## Description
+An Arduino library, based on the Team Pegasus autonomous car [code](https://github.com/platisd/AndroidCar). The arduino must be cabled to a model car's sensors and bluethooth module.  Then, this library fetches sensor data and transmits it via bluetooth.  It also receives driving commands from the Android App to control an ESC (acceleration) and a servo motor (steering).
 
-### Description
-The library was designed to control an Autonomous Vehicle, that can follow lanes, park and overtake vehicles, as tasked by the [DIT168] course. The vehicle is controlled wirelessly by an Android phone that is mounted on top of it and accomplishes its tasks, using image processing (OpenCV for Android) and utilizing data from sensors mounted on the car.
-Therefore, this library provides an easy to use and simple to understand interface, to control the vehicle's movement and read its sensors data. Despite being used as an in-house system and therefore the developers working on it were already familiriazed with the functions and the various components, the library was designed with the intention of being used by novice users.
-The library is dependant on certain hardware sensors and of course the Arduino platform, however, it can be very easily modified or enriched for different setups. In [/examples/androidCar] the arduino sketch running on the vehicle can be found. For more examples on the library's usage, please refer to [Example sketches](https://github.com/platisd/AndroidCar/wiki/Example-sketches) page in the repo's wiki.
+This library provides a simple interface to the car's sensors.  The aim is to use the library to build an Autonomous Vehicle which can follow lanes, park and overtake vehicles.  An Andoid app (running on a mobile phone mounted on the car) would control the vehicle over bluetooth using this library.
 
-Moreover, in [/LED_DRIVER] a sketch running on an ATtiny85 microcontroller can be found, which is tasked to control the various LED lights that are mounted on the vehicle, which are indicating the current operation mode of the car (turning, stopping, override, running) as per specifications of the DIT168 course.
+The arduino sketch which supports running the vehicle in autonomous mode is in [arduino_testing/sketch_android_car/]
 
-Finally, the repository for the application that is running in Android and permits the accomplishment of the various tasks (lane following, parking) can be found [here](https://github.com/Petroula/Android-Car-duino).
+## Documentation
+- AndroidCar [Wiki](https://github.com/sesstigit/AndroidCar/wiki)
 
-### Components
-- Electronic Speed Controller (ESC)
-- Servo motor (Steering wheel)
-- Speed encoder
-- Ultrasonic sensors (HC-SR04, SRF05)
-- Infrared distance sensors (SHARP GP2D120)
-- Gyroscope (L3G4200D)
-- 9DOF IMU ([Razor IMU])
+## Dependencies
+* Arduino board: tested on Arduino Mega 2560
+* Sensors: only a limited set of sensors are supported.  See the [Wiki](https://github.com/sesstigit/AndroidCar/wiki) for details.
+* To drive the car autonomously, the [Carduino App](https://github.com/sesstigit/Android-Car-duino) must be installed on an Android device.
+* [Wire library](http://arduino.cc/en/reference/Wire) used for getting data from the gyroscope, via I2C
+* [Servo library](http://www.arduino.cc/en/Reference/Servo) used for controlling the ESC and the steering wheel
 
-### Dependencies
-- [Wire library](http://arduino.cc/en/reference/Wire) used for getting data from the gyroscope, via I2C
-- [Servo library](http://www.arduino.cc/en/Reference/Servo) used for controlling the ESC and the steering wheel
+## Diagram
+![Alt text](car_architecture_arduino.png?raw=true "You are now looking at the arduino library")
 
-### Documentation
-- Autonomous-Car Arduino Library [Wiki](https://github.com/platisd/AndroidCar/wiki)
-
-[/examples/androidCar]:examples/androidCar
-[/LED_DRIVER]:LED_DRIVER
-[Razor IMU]:https://www.sparkfun.com/products/10736
-[Smartcar sensors]:https://github.com/platisd/smartcar_sensors
-[DIT168]:http://gul.gu.se/public/courseId/66254/coursePath/46831/ecp/lang-en/publicPage.do
-
-### Project overview
-[The world's first Android autonomous vehicle](https://platis.solutions/blog/2015/06/29/worlds-first-android-autonomous-vehicle/)
+## History
+Repository cloned, then adapted from [this project](https://github.com/platisd/AndroidCar).
 
 ### License
 GPLv3
