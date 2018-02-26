@@ -1,27 +1,27 @@
 # AndroidCar Arduino Library
 
 ## Description
-An Arduino library, based on the Team Pegasus autonomous car [code](https://github.com/platisd/AndroidCar). The arduino must be cabled to a model car's sensors and bluethooth module.  Then, this library fetches sensor data and transmits it via bluetooth.  It also receives driving commands from the Android App to control an ESC (acceleration) and a servo motor (steering).
+This Arduino library is based on the Team Pegasus autonomous car [code](https://github.com/platisd/AndroidCar). Once a model car's sensors and bluethooth module are cabled to a physical Arduino board, the job of this library is to fetch sensor data and transmit it over bluetooth to a controller.  The library also receives driving commands from the controller and passes them to the ESC (for acceleration) and to a servo motor (for steering).
 
-This library provides a simple interface to the car's sensors.  The aim is to use the library to build an Autonomous Vehicle which can follow lanes, park and overtake vehicles.  An Andoid app (running on a mobile phone mounted on the car) would control the vehicle over bluetooth using this library.
+This library provides a simple interface to the car's sensors.  The aim is to use the library to build an Autonomous Vehicle which can follow lanes, park and overtake vehicles.  In that case, the controller is an Andoid app (running on a mobile phone mounted on the car) which controls the car using bluetooth communication to this library.
 
 The arduino sketch which supports running the vehicle in autonomous mode is in [arduino_testing/sketch_android_car/]
 
 ## Documentation
-- AndroidCar [Wiki](https://github.com/sesstigit/AndroidCar/wiki)
+More details about installation, setup and debugging are on the AndroidCar [Wiki](https://github.com/sesstigit/AndroidCar/wiki)
 
 ## Dependencies
 * Arduino board: tested on Arduino Mega 2560
 * Sensors: only a limited set of sensors are supported.  See the [Wiki](https://github.com/sesstigit/AndroidCar/wiki) for details.
-* To drive the car autonomously, the [Carduino App](https://github.com/sesstigit/Android-Car-duino) must be installed on an Android device.
-* [Wire library](http://arduino.cc/en/reference/Wire) used for getting data from the gyroscope, via I2C
-* [Servo library](http://www.arduino.cc/en/Reference/Servo) used for controlling the ESC and the steering wheel
+* If the aim is an autonomous car, then additional controller software must be used such as the [Carduino App](https://github.com/sesstigit/Android-Car-duino).
+* Arduino [Wire library](http://arduino.cc/en/reference/Wire) used for getting data from the gyroscope, via I2C
+* Arduino [Servo library](http://www.arduino.cc/en/Reference/Servo) used for controlling the ESC and the steering wheel
 
 ## Diagram
 ![Alt text](car_architecture_arduino.png?raw=true "You are now looking at the arduino library")
 
 ## History
-Repository cloned, then adapted from [this project](https://github.com/platisd/AndroidCar).
+This repository was cloned from [here](https://github.com/platisd/AndroidCar), before customisation.
 
 ### License
 GPLv3
