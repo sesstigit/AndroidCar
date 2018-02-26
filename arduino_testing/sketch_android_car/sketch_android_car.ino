@@ -16,7 +16,7 @@
 #include "CarVariables.h"
 
 Car car(SERVO_PIN, ESC_PIN); //steering, esc
-//STIGIT//Sonar frontSonar, frontRightSonar, rearSonar;
+Sonar frontSonar, frontRightSonar, rearSonar;
 Sharp_IR sideFrontIR, sideRearIR, rearIR;
 //STIGIT//Odometer encoder;
 //STIGIT//Gyroscope gyro;
@@ -40,9 +40,9 @@ const unsigned short IR_INTERVAL = 500;
 
 void setup() {
   car.begin();
-  //STIGIT//frontSonar.attach(FRONT_US_TRIG_PIN, FRONT_US_ECHO_PIN);
-  //STIGIT//frontRightSonar.attach(FRONT_RIGHT_US_TRIG_PIN, FRONT_RIGHT_US_ECHO_PIN);
-  //STIGIT//rearSonar.attach(REAR_US_TRIG_PIN, REAR_US_ECHO_PIN);
+  frontSonar.attach(FRONT_US_TRIG_PIN, FRONT_US_ECHO_PIN);
+  frontRightSonar.attach(FRONT_RIGHT_US_TRIG_PIN, FRONT_RIGHT_US_ECHO_PIN);
+  rearSonar.attach(REAR_US_TRIG_PIN, REAR_US_ECHO_PIN);
   sideFrontIR.attach(SIDE_FRONT_IR_PIN);
   sideRearIR.attach(SIDE_REAR_IR_PIN);
   rearIR.attach(REAR_IR_PIN);
@@ -107,15 +107,15 @@ void handleOverride() {
 void transmitSensorData() {
   if (bluetoothConnected && (millis() - previousTransmission > COM_FREQ)) {
     String out;
-    //STIGIT//out = "US1-";
-    //STIGIT//out += frontSonar.getDistance();
-    //STIGIT//Serial2.println(encodedNetstring(out));
-    //STIGIT//out = "US2-";
-    //STIGIT//out += frontRightSonar.getDistance();
-    //STIGIT//Serial2.println(encodedNetstring(out));
-    //STIGIT//out = "US3-";
-    //STIGIT//out += rearSonar.getDistance();
-    //STIGIT//Serial2.println(encodedNetstring(out));
+    out = "US1-";
+    out += frontSonar.getDistance();
+    Serial2.println(encodedNetstring(out));
+    out = "US2-";
+    out += frontRightSonar.getDistance();
+    Serial2.println(encodedNetstring(out));
+    out = "US3-";
+    out += rearSonar.getDistance();
+    Serial2.println(encodedNetstring(out));
     out = "IR1-";
     out += sideFrontIR.getDistance();
     Serial2.println(encodedNetstring(out));
