@@ -1,9 +1,11 @@
 # AndroidCar Arduino Library
 
 ## Description
-This Arduino library is based on the Team Pegasus autonomous car [code](https://github.com/platisd/AndroidCar). Once a model car's sensors and bluethooth module are cabled to a physical Arduino board, the job of this library is to fetch sensor data and transmit it over bluetooth to a controller.  The library also receives driving commands from the controller and passes them to the ESC (for acceleration) and to a servo motor (for steering).
+This Arduino library is based on the Team Pegasus autonomous car [code](https://github.com/platisd/AndroidCar), however many modifications have been made.
 
-This library provides a simple interface to the car's sensors.  The aim is to use the library to build an Autonomous Vehicle which can follow lanes, park and overtake vehicles.  In that case, the controller is an Andoid app (running on a mobile phone mounted on the car) which controls the car using bluetooth communication to this library.
+After cabling an RC car's sensors and bluethooth module to a physical Arduino board, the job of this library is to fetch sensor data and transmit it over bluetooth to a controller.  The library also receives driving commands from the controller and passes them to the ESC (for acceleration) and to a servo motor (for steering).
+
+Hence this library provides a simple interface to the car's sensors.  The aim is to use the library to build an Autonomous Vehicle which can follow lanes, park and overtake vehicles.  In that case, the controller may be an Andoid app (running on a mobile phone mounted on the car) which controls the car using bluetooth communication to this library.
 
 The arduino sketch which supports running the vehicle in autonomous mode is in [arduino_testing/sketch_android_car/]
 
