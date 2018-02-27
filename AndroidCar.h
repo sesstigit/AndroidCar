@@ -29,6 +29,8 @@ class Car {
 		void setAngle(int degrees);
 		int getSpeed();
 		int getAngle();
+		int modSpeed(int modAmount);
+		int modAngle(int modAmount);
 	private:
 		void setSteeringWheelPin(unsigned short steeringWheelPin);
 		void setESCPin(unsigned short escPin);
