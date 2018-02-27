@@ -13,6 +13,7 @@ The arduino sketch which supports running the vehicle in autonomous mode is in [
 More details about installation, setup and debugging are on the AndroidCar [Wiki](https://github.com/sesstigit/AndroidCar/wiki)
 
 ## Dependencies
+* Arduino Integrated Development Environment (IDE) [Software](https://www.arduino.cc/en/Main/Software)
 * Arduino board: tested on Arduino Mega 2560
 * Sensors: only a limited set of sensors are supported.  See the [Wiki](https://github.com/sesstigit/AndroidCar/wiki) for details.
 * If the aim is an autonomous car, then additional controller software must be used such as the [Carduino App](https://github.com/sesstigit/Android-Car-duino).
