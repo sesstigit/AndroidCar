@@ -57,7 +57,7 @@ int Car::modSpeed(int modAmount){
   setSpeed(initialSpeed + modAmount);
   int finalSpeed = getSpeed();
   // Check whether we have passed from positive to negative speed.
-  if ((finalSpeed < 0) && initialSpeed >= 0)) {
+  if ((finalSpeed < 0) && (initialSpeed >= 0)) {
     // now in braking mode.  Change to reverse mode by setting speed back to zero, and then to the negative speed.
     setSpeed(0);
     setSpeed(finalSpeed);
