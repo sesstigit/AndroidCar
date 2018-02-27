@@ -149,7 +149,13 @@ void handleInput() {
     }
     if (Serial2.available()) {
       String input = decodedNetstring(Serial2.readStringUntil(','));
-      if (input.startsWith("m")) {
+	  if (input.startsWith("mm")) {
+        int throttle = input.substring(2).toInt();
+        car.modSpeed(throttle);
+      } else if (input.startsWith("tm")) {
+        int degrees = input.substring(2).toInt();
+        car.modAngle(degrees);
+      } else if (input.startsWith("m")) {
         int throttle = input.substring(1).toInt();
         car.setSpeed(throttle);
       } else if (input.startsWith("t")) {
