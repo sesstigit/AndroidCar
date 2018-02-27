@@ -13,12 +13,13 @@ The arduino sketch which supports running the vehicle in autonomous mode is in [
 More details about installation, setup and debugging are on the AndroidCar [Wiki](https://github.com/sesstigit/AndroidCar/wiki)
 
 ## Dependencies
-* Arduino Integrated Development Environment (IDE) [Software](https://www.arduino.cc/en/Main/Software)
-* Arduino board: tested on Arduino Mega 2560
-* Sensors: only a limited set of sensors are supported.  See the [Wiki](https://github.com/sesstigit/AndroidCar/wiki) for details.
+* Arduino Integrated Development Environment (IDE) [Software](https://www.arduino.cc/en/Main/Software).  Install to Windows PC.
+* Arduino board: tested on Arduino Mega 2560 (should already be installed in RC car)
+* Sensors: only a limited set of sensors for the RC car are supported.  See the [Wiki](https://github.com/sesstigit/AndroidCar/wiki) for details.
 * If the aim is an autonomous car, then additional controller software must be used such as the [Carduino App](https://github.com/sesstigit/Android-Car-duino).
-* Arduino [Wire library](http://arduino.cc/en/reference/Wire) used for getting data from the gyroscope, via I2C
-* Arduino [Servo library](http://www.arduino.cc/en/Reference/Servo) used for controlling the ESC and the steering wheel
+  * Basic testing of the Arduino and car sensors does not use teh Carduino App.  The App is only used for autonomous mode.
+* Arduino IDE add the [Wire library](http://arduino.cc/en/reference/Wire) for getting data from the gyroscope, via I2C
+* Arduino IDE add the [Servo library](http://www.arduino.cc/en/Reference/Servo) for controlling the ESC and the steering wheel
 
 ## Diagram
 ![Alt text](car_architecture_arduino.png?raw=true "You are now looking at the arduino library")
