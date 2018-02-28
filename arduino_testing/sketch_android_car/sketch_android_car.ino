@@ -1,13 +1,15 @@
-/* The running arduino sketch on the Android Autonomous Vehicle by Team Pegasus
+/* The running arduino sketch on the Android Autonomous Vehicle originally by Team Pegasus,
+*  adapted by SESSTIGIT.
 *
 * Description: The vehicle is based on an Arduino Mega, that is connected to various sensors
 * (infrared, ultrasound, speed encoder, gyroscope and 9DOF IMU) and receives driving instructions
 * from an Android phone, via Bluetooth, that is attached on the top of the vehicle. The vehicle
 * can follow street lanes, park and overtake obstacles, using image processing on the Android phone.
 *
-*  Author: Dimitris Platis
-*  Note: modifications have been made for STIGIT car, e.g. Razorboard and Odometer not yet included
-*        All changes labelled STIGIT
+*  Author: Dimitris Platis + SESSTIGIT
+*  Note: Razorboard and Odometer not currently supported.
+*  Note2: Lights not currently installed.
+*  Note3: Manual override using an RC remote not currently supported.
 */
 #include <AndroidCar.h>
 #include <Servo.h>
