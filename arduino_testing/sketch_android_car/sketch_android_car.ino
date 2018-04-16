@@ -91,7 +91,7 @@ void loop() {
   handleInput(); //look for a serial input if override is not triggered and act accordingly
   //STIGIT//updateLEDs(); //update LEDs depending on the mode we are currently in
   //STIGIT//gyro.update(); //integrate gyroscope's readings
-  transmitSensorData(); //fetch and transmit the sensor data in the correct intervals if bluetooth is connected
+  //transmitSensorData(); //fetch and transmit the sensor data in the correct intervals if bluetooth is connected
 }
 
 void updateLEDs() {
@@ -158,13 +158,14 @@ void transmitSensorData() {
 }
 
 void handleInput() {
-  if (!overrideTriggered || (millis() > overrideRelease)) {
+  /*if (!overrideTriggered || (millis() > overrideRelease)) {
     if (overrideTriggered) { //this state is only entered when the OVERRIDE_TIMEOUT is over
       overrideTriggered = false;
       //after going out of the override mode, set speed and steering to initial position
       car.setSpeed(0);
       car.setAngle(0);
     }
+    */
     if (Serial2.available()) {
       String input = decodedNetstring(Serial2.readStringUntil(','));
 	  if (input.startsWith("mm")) {
@@ -184,7 +185,7 @@ void handleInput() {
       } else {
         Serial2.println(encodedNetstring("Bad input"));
       }
-    }
+    }/*
   } else { //override mode
     unsigned short servoFreq = pulseIn(OVERRIDE_SERVO_PIN, HIGH, MAX_STEERING_WAVELENGTH);
     unsigned short throttleFreq = pulseIn(OVERRIDE_THROTTLE_PIN, HIGH, MAX_STEERING_WAVELENGTH);
@@ -216,8 +217,9 @@ void handleInput() {
     }
     while (Serial2.read() != -1); //discard incoming data while on override
   }
+  */
 }
-
+/*
 void setupChangeInterrupt(unsigned short pin) {
   *digitalPinToPCMSK(pin) |= bit (digitalPinToPCMSKbit(pin));  // enable pin
   PCIFR  |= bit (digitalPinToPCICRbit(pin)); // clear any outstanding interrupt
@@ -246,3 +248,4 @@ ISR (PCINT2_vect) {
     }
   }
 }
+*/
