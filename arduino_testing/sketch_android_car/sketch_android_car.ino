@@ -1,3 +1,5 @@
+#include <AndroidCar.h>
+
 /**
 *    This file is part of AndroidCar.
 *
@@ -94,6 +96,7 @@ void loop() {
   //transmitSensorData(); //fetch and transmit the sensor data in the correct intervals if bluetooth is connected
 }
 
+/*
 void updateLEDs() {
   if (millis() - prevCheck > LEDrefreshRate) {
     if (overrideTriggered) { //if override is triggered
@@ -154,10 +157,9 @@ void transmitSensorData() {
     //STIGIT//Serial2.println(encodedNetstring(out));
     previousTransmission = millis();
   }
-
 }
-
-void handleInput() {
+*/
+//void handleInput() {
   /*if (!overrideTriggered || (millis() > overrideRelease)) {
     if (overrideTriggered) { //this state is only entered when the OVERRIDE_TIMEOUT is over
       overrideTriggered = false;
@@ -166,6 +168,7 @@ void handleInput() {
       car.setAngle(0);
     }
     */
+void handleInput() {
     if (Serial2.available()) {
       String input = decodedNetstring(Serial2.readStringUntil(','));
 	  if (input.startsWith("mm")) {
@@ -219,13 +222,13 @@ void handleInput() {
   }
   */
 }
-/*
+
 void setupChangeInterrupt(unsigned short pin) {
   *digitalPinToPCMSK(pin) |= bit (digitalPinToPCMSKbit(pin));  // enable pin
   PCIFR  |= bit (digitalPinToPCICRbit(pin)); // clear any outstanding interrupt
   PCICR  |= bit (digitalPinToPCICRbit(pin)); // enable interrupt for the group
 }
-
+/*
 //the interrupt service routine for pins A8 until A15 on Arduino mega
 ISR (PCINT2_vect) {
   //if either of the IR arrays have detected a line
